@@ -1,5 +1,3 @@
-import type {NextRequest, NextResponse} from "next/server";
-
 export const config = {
     runtime: "edge",
 };
@@ -19,7 +17,7 @@ const longRunning = async (notify: Notify) => {
     notify.complete({data: "My data"})
 }
 
-export default async function longRunningResponse(req: NextRequest, res: NextResponse) {
+export async function GET() {
     let responseStream = new TransformStream();
     const writer = responseStream.writable.getWriter();
     const encoder = new TextEncoder();
