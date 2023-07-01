@@ -9,10 +9,11 @@ export default function Chat() {
     console.log(messages)
 
     return (
-        <div>
+        <div className="mx-auto w-full max-w-md py-24 flex flex-col stretch">
             {messages.map(m => (
                 <div key={m.id}>
-                    {m.role}: {m.content}
+                    {m.role === 'user' ? 'User: ' : 'AI: '}
+                    {m.content}
                 </div>
             ))}
 
@@ -20,10 +21,12 @@ export default function Chat() {
                 <label>
                     Say something...
                     <input
+                        className="fixed w-full max-w-md bottom-0 border border-gray-300 rounded mb-8 shadow-xl p-2 text-black"
                         value={input}
                         onChange={handleInputChange}
                     />
                 </label>
+                <button type="submit">Send</button>
             </form>
         </div>
     )
