@@ -1,4 +1,4 @@
-export const runtime = 'edge'
+// export const runtime = 'edge'
 
 interface Notify {
     log: (message: string) => void
