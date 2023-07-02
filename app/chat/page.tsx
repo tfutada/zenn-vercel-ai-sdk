@@ -3,7 +3,7 @@
 import {useChat} from 'ai/react'
 
 export default function Chat() {
-    const api = ["/api-ai", "/api-huggingface"][1]
+    const api = ["/api-ai", "/api-huggingface", "/api/anthropic"][1]
 
     const {messages, input, handleInputChange, handleSubmit} = useChat({api})
 
