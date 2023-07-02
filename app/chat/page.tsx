@@ -3,7 +3,9 @@
 import {useChat} from 'ai/react'
 
 export default function Chat() {
-    const {messages, input, handleInputChange, handleSubmit} = useChat({api: "/api-ai"})
+    const api = ["/api-ai", "/api-huggingface"][1]
+
+    const {messages, input, handleInputChange, handleSubmit} = useChat({api})
 
     console.log(input)
     console.log(messages)
@@ -26,7 +28,7 @@ export default function Chat() {
                         onChange={handleInputChange}
                     />
                 </label>
-                <button type="submit">Send</button>
+                <button className="text-white bg-blue-500" type="submit">Send</button>
             </form>
         </div>
     )
