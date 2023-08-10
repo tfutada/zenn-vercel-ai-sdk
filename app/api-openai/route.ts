@@ -5,6 +5,8 @@ import {Configuration, OpenAIApi} from 'openai-edge'
 const config = new Configuration({
     apiKey: process.env.OPENAI_API_KEY
 })
+console.log(`OPENAI_API_KEY> ${process.env.OPENAI_API_KEY}`)
+
 const openai = new OpenAIApi(config)
 
 // IMPORTANT! Set the runtime to edge
@@ -19,6 +21,8 @@ export async function POST(req: Request) {
     try {
         const response = await openai.createChatCompletion({
             model: 'gpt-3.5-turbo',
+            top_p: 0.75,
+            // temperature: 0.9,
             stream: true,
             messages
         })
