@@ -4,7 +4,6 @@ import { HuggingFaceStream, StreamingTextResponse } from 'ai'
 // Create a new Hugging Face Inference instance
 const Hf = new HfInference(process.env.HUGGINGFACE_API_KEY)
 
-// IMPORTANT! Set the runtime to edge
 export const runtime = 'edge'
 
 // Build a prompt from the messages

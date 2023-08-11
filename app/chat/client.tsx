@@ -4,7 +4,7 @@ import {useChat} from 'ai/react'
 
 export default function Chat() {
     // change the index to switch between the different APIs. ex. 0, 1, 2
-    const api = ["/api-openai", "/api-huggingface", "/api/anthropic"][0]
+    const api = ["/api-openai", "/api-huggingface", "/api/anthropic"][1]
 
     const {messages, input, handleInputChange, handleSubmit} = useChat({api})
 
