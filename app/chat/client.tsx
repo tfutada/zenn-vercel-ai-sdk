@@ -12,25 +12,32 @@ export default function Chat() {
     console.log(messages)
 
     return (
-        <div className="mx-auto w-full max-w-md py-24 flex flex-col stretch">
-            {messages.map(m => (
-                <div key={m.id}>
-                    {m.role === 'user' ? 'User: ' : 'AI: '}
-                    {m.content}
-                </div>
-            ))}
+        <>
+            <div className="mx-auto w-full max-w-md py-24 flex flex-col stretch">
+                {messages.map(m => (
+                    <div key={m.id}>
+                        {m.role === 'user' ? 'User: ' : 'AI: '}
+                        {m.content}
+                    </div>
+                ))}
+            </div>
 
             <form onSubmit={handleSubmit}>
-                <label>
-                    Say something...
-                    <input
-                        className="fixed w-full max-w-md bottom-0 border border-gray-300 rounded mb-8 shadow-xl p-2 text-black"
-                        value={input}
-                        onChange={handleInputChange}
-                    />
-                </label>
-                <button className="text-white bg-blue-500" type="submit">Send</button>
+                <div className="fixed bottom-0 flex flex-col w-5/6 ml-3 mb-8">
+                    <label htmlFor="userMessage">Say something:</label>
+                    <div className="flex">
+                        <input
+                            id="userMessage"
+                            className="grow border border-gray-300 rounded shadow-xl p-2 text-blue-800"
+                            value={input}
+                            onChange={handleInputChange}
+                            placeholder="Type your message here..."
+                        />
+                        <button className="text-white bg-blue-500 flex-none w-30 h-14 ml-1 rounded p-2" type="submit">Send</button>
+                    </div>
+                </div>
             </form>
-        </div>
+
+        </>
     )
 }
